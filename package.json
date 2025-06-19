@@ -1,7 +1,7 @@
 {
   "name": "timekin",
   "version": "1.0.0",
-  "description": "",
+  "description": "A journaling app to preserve personal memories with text, media, location, and mood.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
