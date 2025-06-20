@@ -9,9 +9,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get(['/api', '/api/'], (_, res) => {
+  res.send('Hello from Timekin API!');
+});
+
 app.get('/', (_, res) => {
   res.send('Hello from Timekin API!');
 });
+
 
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
