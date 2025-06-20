@@ -1,12 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   server: {
     proxy: {
       '/api': 'http://localhost:3000',
     },
   },
-});
+  define: {
+    __API_BASE__: JSON.stringify(
+      mode === 'development'
+        ? '/api'
+        : 'https://timekin-backend.onrender.com'
+    ),
+  },
+}));
