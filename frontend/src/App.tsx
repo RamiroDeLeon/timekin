@@ -13,17 +13,6 @@ function App() {
 
   return (
     <>
-      <div className="p-4">
-        <h1 className="text-3xl font-bold text-purple-600">Timekin Frontend</h1>
-        <p className="mt-4 text-lg">{apiMessage}</p>
-      </div>
-    </>
-  )
-}
-
-export default App
-
-
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -45,3 +34,12 @@ export default App
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
+      <div className="p-4">
+        <h1 className="text-3xl font-bold text-purple-600">Timekin Frontend</h1>
+        <p className="mt-4 text-lg">{apiMessage}</p>
+      </div>
+    </>
+  )
+}
+
+export default App
