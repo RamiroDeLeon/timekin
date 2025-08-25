@@ -4,7 +4,7 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 **Frontend**
 - Vite + React + TypeScript
@@ -28,7 +28,7 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 
 ---
 
-## 📦 Current Features
+## Current Features
 
 - ✅ Live backend at: [`https://timekin-backend.onrender.com`](https://timekin-backend.onrender.com)
   - Handles `/`, `/api`, `/api/` routes with CORS enabled
@@ -41,7 +41,7 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 
 ---
 
-## 🖥️ Local Development
+## Local Development
 
 ```bash
 # From project root
