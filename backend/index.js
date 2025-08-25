@@ -13,11 +13,11 @@ app.use((req, res, next) => {
 });
 
 app.get(['/api', '/api/'], (_, res) => {
-  res.send('Hello from Timekin API!');
+  res.send('Hello from Timekin API Server side!');
 });
 
 app.get('/', (_, res) => {
-  res.send('Hello from Timekin API!');
+  res.send('Hello from Timekin API Server side!');
 });
 
 
