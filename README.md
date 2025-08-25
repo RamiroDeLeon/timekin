@@ -1,6 +1,6 @@
 # Timekin
 
-Timekin is a personal journaling web app designed to help preserve memories, moods, and moments — enriched with media, location tagging, and emotion-based context. This repository contains the full-stack monorepo for Timekin, built as a clean, resume-ready V1 showcase project.
+Timekin is a personal journaling web app designed to help preserve memories and legacy through rich text, media, location tagging, and mood metadata. This is the V1 scaffolding phase, showcasing a clean full-stack setup and deployment pipeline.
 
 ---
 
@@ -9,35 +9,29 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 **Frontend**
 - Vite + React + TypeScript
 - Tailwind CSS
-- React Context API (state management)
-- Deployed as static site via Render
+- Context API (state management)
 
 **Backend**
 - Node.js + Express
-- REST API (JSON)
-- CORS-enabled for cross-origin frontend communication
-- Deployed via Render (Node Web Service)
+- TypeScript (future)
+- REST API
 
-**Infra & Tooling**
-- Render (frontend and backend hosting)
+**Storage & Infra**
+- MongoDB Atlas (planned)
+- AWS S3 (planned)
+- Render (backend deployment)
 - GitHub Actions (CI/CD pipeline)
-- Concurrently (unified dev workflow)
-- Dotenv (.env support for ports and secrets)
-- Terraform (planned for future infra as code)
-- MongoDB Atlas, AWS S3 (planned)
+- Terraform (planned for IaC)
 
 ---
 
-## 📦 Current Features
+## 📦 Current Features (as of scaffold milestone)
 
-- ✅ Live backend at: [`https://timekin-backend.onrender.com`](https://timekin-backend.onrender.com)
-  - Handles `/`, `/api`, `/api/` routes with CORS enabled
-- ✅ Frontend static site at: [`https://timekin-frontend.onrender.com`](https://timekin-frontend.onrender.com)
-  - Displays live data fetched from backend API
-- ✅ Unified local dev with `concurrently`
-- ✅ Vite proxy for local `/api` requests
-- ✅ Hot reload in both frontend and backend
-- 🚧 Future: Journal CRUD, media uploads, location + mood tagging, MongoDB integration
+- ✅ Backend Express API deployed to Render (`/` → Hello World)
+- ✅ Frontend Vite app scaffolded with Tailwind styles + hot reload
+- ✅ Unified local dev workflow via `concurrently`
+- ✅ CI pipeline stubbed via GitHub Actions
+- 🚧 Full CRUD, DB, media, and location features coming soon
 
 ---
 
@@ -45,13 +39,11 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 
 ```bash
 # From project root
-npm install         # installs root and backend deps
-cd frontend && pnpm install   # installs frontend deps
-
-# Start both servers
+npm install
 npm run dev
+```
 
-| Layer    | Description     | URL                                              |
-| -------- | --------------- | ------------------------------------------------ |
-| Backend  | Express API     | [http://localhost:3000](http://localhost:3000)   |
-| Frontend | Vite dev server | [http://localhost:5173](http://localhost:5173)\* |
+---
+## Ports
+- Backend → http://localhost:3000
+- Frontend → http://localhost:5173 (or nearest open port)
