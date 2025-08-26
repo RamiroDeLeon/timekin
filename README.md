@@ -4,54 +4,73 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 
 ---
 
-## Tech Stack
+## 🧱 Tech Stack
 
 **Frontend**
+
 - Vite + React + TypeScript
 - Tailwind CSS
-- React Context API (state management)
+- React Router
+- React Context API (planned)
 - Deployed as static site via Render
 
 **Backend**
+
 - Node.js + Express
 - REST API (JSON)
 - CORS-enabled for cross-origin frontend communication
 - Deployed via Render (Node Web Service)
 
 **Infra & Tooling**
+
 - Render (frontend and backend hosting)
 - GitHub Actions (CI/CD pipeline)
 - Concurrently (unified dev workflow)
 - Dotenv (.env support for ports and secrets)
-- Terraform (planned for future infra as code)
+- ESLint + Prettier (code formatting and linting)
+- Terraform (planned)
 - MongoDB Atlas, AWS S3 (planned)
 
 ---
 
-## Current Features
+## ✅ Current Features
 
-- ✅ Live backend at: [`https://timekin-backend.onrender.com`](https://timekin-backend.onrender.com)
-  - Handles `/`, `/api`, `/api/` routes with CORS enabled
-- ✅ Frontend static site at: [`https://timekin-frontend.onrender.com`](https://timekin-frontend.onrender.com)
-  - Displays live data fetched from backend API
-- ✅ Unified local dev with `concurrently`
-- ✅ Vite proxy for local `/api` requests
-- ✅ Hot reload in both frontend and backend
-- 🚧 Future: Journal CRUD, media uploads, location + mood tagging, MongoDB integration
+- Live backend at: [`https://timekin-backend.onrender.com`](https://timekin-backend.onrender.com)
+  - Handles `/`, `/api`, `/api/`, `/api/entries`
+  - Returns sample journal data in `/api/entries`
+- Frontend at: [`https://timekin-frontend.onrender.com`](https://timekin-frontend.onrender.com)
+  - Fetches and displays journal entries from the backend
+  - Clean UI styled with Tailwind CSS
+- Unified local dev with `concurrently`
+- Local `/api` proxying via Vite
+- Hot reload (frontend: Vite, backend: Nodemon)
+- ESLint + Prettier setup for formatting and consistency
 
 ---
 
-## Local Development
+## 🧪 Local Development
 
 ```bash
 # From project root
-npm install         # installs root and backend deps
+npm install               # installs root and backend deps
 cd frontend && pnpm install   # installs frontend deps
 
-# Start both servers
+# Start both frontend and backend together
 npm run dev
 
-| Layer    | Description     | URL                                              |
-| -------- | --------------- | ------------------------------------------------ |
-| Backend  | Express API     | [http://localhost:3000](http://localhost:3000)   |
-| Frontend | Vite dev server | [http://localhost:5173](http://localhost:5173)\* |
+| Layer    | Description     | URL                                                                |
+| -------- | --------------- | ------------------------------------------------------------------ |
+| Backend  | Express API     | [http://localhost:3000](http://localhost:3000)                     |
+| Frontend | Vite dev server | [http://localhost:5173](http://localhost:5173) (or next available) |
+
+
+🚧 Coming Soon
+- Create / Read / Delete journal entries
+- Media uploads (photos, videos)
+- Timestamp + geolocation tagging
+- Mood tagging (emoji or color)
+- MongoDB Atlas for journal data
+- AWS S3 for media storage
+- CI/CD deploy automation
+- Infrastructure-as-code (Terraform)
+```
