@@ -57,6 +57,7 @@ cd frontend && pnpm install   # installs frontend deps
 
 # Start both frontend and backend together
 npm run dev
+```
 
 | Layer    | Description     | URL                                                                |
 | -------- | --------------- | ------------------------------------------------------------------ |
@@ -73,4 +74,3 @@ npm run dev
 - AWS S3 for media storage
 - CI/CD deploy automation
 - Infrastructure-as-code (Terraform)
-```
