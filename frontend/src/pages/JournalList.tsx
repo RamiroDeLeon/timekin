@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-type Entry = {
+type JournalEntry = {
   id: string;
   title: string;
   content: string;
@@ -8,34 +8,35 @@ type Entry = {
 };
 
 const JournalList = () => {
-  const [entries, setEntries] = useState<Entry[]>([]);
-  const [error, setError] = useState(false);
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${__API_BASE__}/api/entries`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Fetch failed');
-        return res.json();
+      .then((res) => res.json())
+      .then((data) => {
+        setEntries(data);
+        setLoading(false);
       })
-      .then(setEntries)
-      .catch(() => setError(true));
+      .catch((err) => {
+        console.error('Failed to fetch entries:', err);
+        setLoading(false);
+      });
   }, []);
 
-  if (error) {
-    return <p className="text-red-500">Failed to load journal entries.</p>;
-  }
+  console.log(`Api Base: ${__API_BASE__}`);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Journal Entries</h1>
-      {entries.length === 0 ? (
-        <p>No entries found.</p>
+    <div className="p-6 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-semibold mb-4">Journal Entries</h2>
+      {loading ? (
+        <p>Loading...</p>
       ) : (
         <ul className="space-y-4">
           {entries.map((entry) => (
-            <li key={entry.id} className="border p-4 rounded shadow-sm">
-              <h2 className="text-xl font-semibold">{entry.title}</h2>
-              <p className="text-sm text-gray-600">{new Date(entry.timestamp).toLocaleString()}</p>
+            <li key={entry.id} className="border p-4 rounded shadow">
+              <h3 className="text-lg font-bold">{entry.title}</h3>
+              <p className="text-sm text-gray-500">{new Date(entry.timestamp).toLocaleString()}</p>
               <p className="mt-2">{entry.content}</p>
             </li>
           ))}

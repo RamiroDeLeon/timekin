@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
   define: {
     __API_BASE__: JSON.stringify(
       mode === 'development'
-        ? '/api'
+        ? ''
         : 'https://timekin-backend.onrender.com'
     ),
   },
