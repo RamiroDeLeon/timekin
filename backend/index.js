@@ -40,6 +40,18 @@ app.get('/api/entries', (_, res) => {
   res.json(entries);
 });
 
+
+// Get a specific journal entry by ID
+app.get('/api/entries/:id', (req, res) => {
+  const { id } = req.params;
+  const entry = entries.find((e) => e.id === id);
+  if (entry) {
+    res.json(entry);
+  } else {
+    res.status(404).json({ error: 'Entry not found' });
+  }
+});
+
 // Create a new journal entry
 app.post('/api/entries', (req, res) => {
   const { title, content, timestamp } = req.body;
