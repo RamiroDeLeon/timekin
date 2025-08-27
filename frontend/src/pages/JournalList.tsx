@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 type JournalEntry = {
   id: string;
@@ -32,10 +33,12 @@ const JournalList = () => {
       ) : (
         <ul className="space-y-4">
           {entries.map((entry) => (
-            <li key={entry.id} className="border p-4 rounded shadow">
-              <h3 className="text-lg font-bold">{entry.title}</h3>
-              <p className="text-sm text-gray-500">{new Date(entry.timestamp).toLocaleString()}</p>
-              <p className="mt-2">{entry.content}</p>
+            <li key={entry.id} className="border p-4 rounded shadow hover:bg-gray-50 transition">
+              <Link to={`/entry/${entry.id}`}>
+                <h3 className="text-lg font-bold text-blue-600 hover:underline">{entry.title}</h3>
+                <p className="text-sm text-gray-500">{new Date(entry.timestamp).toLocaleString()}</p>
+                <p className="mt-2">{entry.content}</p>
+              </Link>
             </li>
           ))}
         </ul>
