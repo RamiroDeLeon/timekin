@@ -45,6 +45,9 @@ Timekin is a personal journaling web app designed to help preserve memories, moo
 - Local `/api` proxying via Vite
 - Hot reload (frontend: Vite, backend: Nodemon)
 - ESLint + Prettier setup for formatting and consistency
+- View full journal entry via `/entry/:id` route
+- Delete entry from detail view
+
 
 ---
 
