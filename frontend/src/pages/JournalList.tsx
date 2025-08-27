@@ -24,8 +24,6 @@ const JournalList = () => {
       });
   }, []);
 
-  console.log(`Api Base: ${__API_BASE__}`);
-
   return (
     <div className="p-6 max-w-3xl mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Journal Entries</h2>
